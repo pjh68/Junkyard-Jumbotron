@@ -57,7 +57,7 @@ Display.prototype = utils.inherits(Client, {
     },
 
     sendPongStart: function sendPongStart() {
-      this.sendMesg('pongStart');  
+      this.sendMsg('pongStart');  
     },
     
     sendShow: function sendShow(options) {
