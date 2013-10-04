@@ -460,41 +460,49 @@ $.extend(Display.prototype, {
 
     msgHandlers : {
 
-	load: function load(args) {
-	    var image = this.image;
-	    if (this.image.src != args.src) {
-		this.mode = 'loading';
-		this.frozen = args.frozen;
-		this.viewport = new Viewport(args.vp);
-		this.image.src = args.src;
-		if (this.image.complete || this.image.readyState === 4)
-		    this.onImageLoad();
-	    }
-	    else {
-		// Pass to viewport message handler
-		this.msgHandlers.viewport.call(this, args.viewport);
-	    }
-	},
-
-	vp: function vp(args) {
-	    // Ignore changes while interacting or loading an image
-	    if (! this.viewport.equals(args) &&
-		(this.mode == 'idle' || this.mode == 'loading') && 
-		! this.viewportMsgScheduled) {
-		this.viewport = new Viewport(args);
-		if (this.mode == 'idle')
-		    this.transformImg();
-	    }
-	},
-
-	id: function id(args) {
-	    this.setLabel(args);
-	},
-
-	show: function show(args) {
-	    if (! isUndefined(args.id))
-		this.showLabel(args.id);
-	}
+        load: function load(args) {
+            var image = this.image;
+            if (this.image.src != args.src) {
+            this.mode = 'loading';
+            this.frozen = args.frozen;
+            this.viewport = new Viewport(args.vp);
+            this.image.src = args.src;
+            if (this.image.complete || this.image.readyState === 4)
+                this.onImageLoad();
+            }
+            else {
+            // Pass to viewport message handler
+            this.msgHandlers.viewport.call(this, args.viewport);
+            }
+        },
+    
+        vp: function vp(args) {
+            // Ignore changes while interacting or loading an image
+            if (! this.viewport.equals(args) &&
+            (this.mode == 'idle' || this.mode == 'loading') && 
+            ! this.viewportMsgScheduled) {
+            this.viewport = new Viewport(args);
+            if (this.mode == 'idle')
+                this.transformImg();
+            }
+        },
+        
+        pongStart: function pongStart() {
+            Game.start('game', Pong);  
+        },
+    
+        id: function id(args) {
+            this.setLabel(args);
+        },
+    
+        show: function show(args) {
+            if (! isUndefined(args.id))
+            this.showLabel(args.id);
+        },
+        
+        startGame: function startGame(args){
+            Game.start('game', Pong);
+        }
 
     }
 });

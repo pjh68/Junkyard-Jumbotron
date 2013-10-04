@@ -462,6 +462,12 @@ Jumbotron.prototype = utils.inherits(Base, {
 		display.sendViewport();
 	}, null, true);
     },
+    
+    broadcastPongStart: function broadcastPongStart(){
+       	this.forEachDisplay(function(display) {
+            display.sendPongStart();
+	   }, null, true); 
+    }
 
     broadcastShow: function broadcastShow(options) {
 	this.forEachDisplay(function(display) {

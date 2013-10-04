@@ -284,7 +284,8 @@ $.extend(Controller.prototype, {
 			 interval: getValue('getSlideshowInterval') };
 	    }
 	},
-
+        
+    jjPongStart : { action: 'startPong', args: {}},
 	jjFitMaximize: { action: 'fit', args: { mode: 'maximize' } },
 	jjFitMinimize: { action: 'fit', args: { mode: 'minimize' } },
 	jjFitStretch : { action: 'fit', args: { mode: 'stretch'  } },

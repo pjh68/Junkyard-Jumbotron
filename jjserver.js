@@ -598,6 +598,14 @@ Server.prototype = {
 	    return 'ok';
 	},
 
+    startPong: function startPong(req, res, controller){
+        if (! controller)
+        return 'no jumbotron';
+        var jumbotron = controller.jumbotron;
+        this.startJumboPong(jumbotron);
+        return 'ok';  
+    },
+        
 	identify: function identify(req, res, controller) {
 	    if (! controller)
 		return 'no jumbotron';
@@ -988,6 +996,10 @@ Server.prototype = {
 	this.commitJumbotron(jumbotron);
     },
 
+    startJumboPong: function startJumboPong(jumbotron) {
+      jumbotron.broadcastPongStart(); 
+    },
+    
     identifyDisplays: function identifyDisplays(jumbotron, on) {
 	jumbotron.broadcastShow({ id: on });
     }
