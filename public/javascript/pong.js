@@ -70,6 +70,7 @@ Pong = {
       this.ball        = Object.construct(Pong.Ball,   this);
       this.sounds      = Object.construct(Pong.Sounds, this);
       this.runner.start();
+      this.start(0); // auto start demo
     }.bind(this));
   },
 
