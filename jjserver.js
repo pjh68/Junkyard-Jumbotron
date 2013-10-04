@@ -598,11 +598,11 @@ Server.prototype = {
 	    return 'ok';
 	},
 
-    startPong: function startPong(req, res, controller){
+    pongCmd: function startPong(req, res, controller){
         if (! controller)
         return 'no jumbotron';
         var jumbotron = controller.jumbotron;
-        this.startJumboPong(jumbotron);
+        this.startJumboPong(jumbotron, req.body.cmd);
         return 'ok';  
     },
         
@@ -996,8 +996,8 @@ Server.prototype = {
 	this.commitJumbotron(jumbotron);
     },
 
-    startJumboPong: function startJumboPong(jumbotron) {
-      jumbotron.broadcastPongStart(); 
+    startJumboPong: function startJumboPong(jumbotron, cmd) {
+      jumbotron.broadcastPongStart(cmd); 
     },
     
     identifyDisplays: function identifyDisplays(jumbotron, on) {

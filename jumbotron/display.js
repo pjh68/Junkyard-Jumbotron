@@ -56,8 +56,8 @@ Display.prototype = utils.inherits(Client, {
 	this.sendMsg('vp', viewport);
     },
 
-    sendPongStart: function sendPongStart() {
-      this.sendMsg('pongStart', {});  
+    sendPongStart: function sendPongStart(cmd) {
+      this.sendMsg('pongStart', cmd);  
     },
     
     sendShow: function sendShow(options) {

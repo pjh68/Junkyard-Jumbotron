@@ -285,7 +285,12 @@ $.extend(Controller.prototype, {
 	    }
 	},
         
-    jjPongStart : { action: 'startPong', args: {}},
+    jjPongShow : { action: 'pongCmd', args: { cmd 'Show'}},
+    jjPongOnePlayer : { action: 'pongCmd', args: { cmd: 'OnePlayer'}},
+    jjPongLeftBatUp : { action: 'pongCmd', args: { cmd: 'LeftBatUp'}},
+    jjPongLeftBatDown : { action: 'pongCmd', args: { cmd: 'LeftBatDown'}},
+        
+        
 	jjFitMaximize: { action: 'fit', args: { mode: 'maximize' } },
 	jjFitMinimize: { action: 'fit', args: { mode: 'minimize' } },
 	jjFitStretch : { action: 'fit', args: { mode: 'stretch'  } },

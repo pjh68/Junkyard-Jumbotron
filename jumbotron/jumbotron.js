@@ -463,9 +463,9 @@ Jumbotron.prototype = utils.inherits(Base, {
 	}, null, true);
     },
     
-    broadcastPongStart: function broadcastPongStart(){
+    broadcastPongStart: function broadcastPongStart(cmd){
        	this.forEachDisplay(function(display) {
-            display.sendPongStart();
+            display.sendPongStart(cmd);
 	   }, null, true); 
     },
 

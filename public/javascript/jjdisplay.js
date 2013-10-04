@@ -488,9 +488,41 @@ $.extend(Display.prototype, {
             }
         },
         
-        pongStart: function pongStart(args) {
-            $.mobile.changePage("#pong");
-            Game.start('game', Pong);  
+        pongStart: function pongStart(cmd) {
+            /*
+                jjPongShow : { action: 'pongCmd', args: { cmd 'Show'}},
+                jjPongOnePlayer : { action: 'pongCmd', args: { cmd: 'OnePlayer'}},
+                jjPongLeftBatUp : { action: 'pongCmd', args: { cmd: 'LeftBatUp'}},
+                jjPongLeftBatDown : { action: 'pongCmd', args: { cmd: 'LeftBatDown'}},
+                              
+            */
+          switch (cmd) {
+              case 'Show':
+                $.mobile.changePage("#pong");
+                Game.start('game', Pong); 
+                break;
+              case 'OnePlayer':
+                var e = jQuery.Event("keydown");
+                e.which = 49; //keyval
+                $.trigger(e)
+                break;
+              case 'LeftBatUp':
+                var e = jQuery.Event("keydown");
+                e.which = 81; //keyval
+                $.trigger(e)
+                break;
+              case 'LeftBatDown':
+                var e = jQuery.Event("keydown");
+                e.which = 65; //keyval
+                $.trigger(e)
+                break;    
+              default:
+                console.log('unknown cmd:' + cmd);
+                break;
+            }
+            
+            
+ 
         },
     
         id: function id(args) {
