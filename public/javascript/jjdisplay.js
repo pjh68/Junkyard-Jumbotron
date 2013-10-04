@@ -504,22 +504,22 @@ $.extend(Display.prototype, {
               case 'ZeroPlayer':
                 var e = jQuery.Event("keydown");
                 e.which = 48; //keyval
-                $.trigger(e)
+                $(document).trigger(e)
                 break;
               case 'OnePlayer':
                 var e = jQuery.Event("keydown");
                 e.which = 49; //keyval
-                $.trigger(e)
+                $(document).trigger(e)
                 break;
               case 'LeftBatUp':
                 var e = jQuery.Event("keydown");
                 e.which = 81; //keyval
-                $.trigger(e)
+                $(document).trigger(e)
                 break;
               case 'LeftBatDown':
                 var e = jQuery.Event("keydown");
                 e.which = 65; //keyval
-                $.trigger(e)
+                $(document).trigger(e)
                 break;    
               default:
                 console.log('unknown cmd:' + cmd);
