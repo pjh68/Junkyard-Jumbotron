@@ -197,24 +197,27 @@ Client.prototype = {
 
     // Subclass must create msgHandlers
     handleMsg: function handleMsg(msg) {
-	try {
-	    var data = JSON.parse(msg);
-	}
-	catch (SyntaxError) {
-	    this.error('Invalid JSON:', msg);
-	    return;
-	}
-
-	try {
-	    this.trace("<", data.cmd, JSON.stringify(data.args));
-	    var handler = this.msgHandlers[data.cmd];
-	    if (! handler)
-		return this.error("Unknown command:", data.cmd);
-	    handler.call(this, data.args);
-	}
-	catch (exception) {
-	    this.error(exception.message + " (" + msg + ")");
-	    this.error(exception.stack);
-	}
+        try {
+            var data = JSON.parse(msg);
+        }
+        catch (SyntaxError) {
+            this.error('Invalid JSON:', msg);
+            return;
+        }
+    
+        try {
+            this.trace("<", data.cmd, JSON.stringify(data.args));
+            console.log('£££££££££££££');
+            console.log(this.msgHandlers);
+            console.log('£££££££££££££');
+            var handler = this.msgHandlers[data.cmd];
+            if (! handler)
+            return this.error("Unknown command:", data.cmd);
+            handler.call(this, data.args);
+        }
+        catch (exception) {
+            this.error(exception.message + " (" + msg + ")");
+            this.error(exception.stack);
+        }
     }
 };
