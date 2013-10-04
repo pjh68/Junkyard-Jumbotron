@@ -292,7 +292,7 @@ Game = {
       result = window.confirm(msg);
       this.start();
       return result;
-    }
+    },
       
     fakeKey: function(keycode){
         this.game.onkeydown(keycode);
