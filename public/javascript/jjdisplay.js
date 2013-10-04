@@ -461,6 +461,7 @@ $.extend(Display.prototype, {
     msgHandlers : {
 
         load: function load(args) {
+            $.mobile.changePage("#home");
             var image = this.image;
             if (this.image.src != args.src) {
             this.mode = 'loading';
