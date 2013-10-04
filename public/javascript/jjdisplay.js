@@ -500,8 +500,10 @@ $.extend(Display.prototype, {
               case 'Show':
                 $.mobile.changePage("#pong");
                 Game.start('game', Pong); 
+                break;
+              case 'ZeroPlayer':
                 var e = jQuery.Event("keydown");
-                e.which = 48; //keyval zero - demo mode
+                e.which = 48; //keyval
                 $.trigger(e)
                 break;
               case 'OnePlayer':
