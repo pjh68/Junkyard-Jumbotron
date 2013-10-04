@@ -19,7 +19,7 @@ Pong = {
 
   Colors: {
     walls:           'white',
-    ball:            'white',
+    ball:            '#92d400',
     score:           'white',
     footprint:       '#333',
     predictionGuess: 'yellow',
