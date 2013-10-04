@@ -488,6 +488,7 @@ $.extend(Display.prototype, {
         },
         
         pongStart: function pongStart() {
+            $.mobile.changePage("#pong");
             Game.start('game', Pong);  
         },
     
