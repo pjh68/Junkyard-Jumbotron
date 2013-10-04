@@ -499,19 +499,19 @@ $.extend(Display.prototype, {
           switch (cmd) {
               case 'Show':
                 $.mobile.changePage("#pong");
-                Game.start('game', Pong); 
+                this.game = Game.start('game', Pong); 
                 break;
               case 'ZeroPlayer':
-                Game.fakeKey(48);
+                this.game.fakeKey(48);
                 break;
               case 'OnePlayer':
-                Game.fakeKey(49);
+                this.game.fakeKey(49);
                 break;
               case 'LeftBatUp':
-                Game.fakeKey(81);
+                this.game.fakeKey(81);
                 break;
               case 'LeftBatDown':
-                  Game.fakeKey(65);
+                  this.game.fakeKey(65);
                 break;    
               default:
                 console.log('unknown cmd:' + cmd);
