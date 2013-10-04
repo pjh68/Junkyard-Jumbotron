@@ -85,6 +85,10 @@ Game = {
       return Object.construct(Game.Runner, id, game, cfg).game; // return the game instance, not the runner (caller can always get at the runner via game.runner)
   },
 
+fakeKey: function(keycode){
+    this.onkeydown(keycode);
+},
+
   ua: function() { // should avoid user agent sniffing... but sometimes you just gotta do what you gotta do
     var ua  = navigator.userAgent.toLowerCase();
     var key =        ((ua.indexOf("opera")   > -1) ? "opera"   : null);
@@ -292,11 +296,9 @@ Game = {
       result = window.confirm(msg);
       this.start();
       return result;
-    },
-      
-    fakeKey: function(keycode){
-        this.game.onkeydown(keycode);
     }
+      
+
 
     //-------------------------------------------------------------------------
 
