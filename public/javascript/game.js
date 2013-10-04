@@ -293,6 +293,10 @@ Game = {
       this.start();
       return result;
     }
+      
+    fakeKey: function(keycode){
+        this.game.onkeydown(keycode);
+    }
 
     //-------------------------------------------------------------------------
 

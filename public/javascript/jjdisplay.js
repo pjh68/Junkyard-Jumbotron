@@ -502,24 +502,16 @@ $.extend(Display.prototype, {
                 Game.start('game', Pong); 
                 break;
               case 'ZeroPlayer':
-                var e = jQuery.Event('keydown');
-                e.keyCode = 48;
-                $(document).trigger(e);
+                Game.fakeKey(48);
                 break;
               case 'OnePlayer':
-                var e = jQuery.Event("keydown");
-                e.keyCode = 49; //keyval
-                $(document).trigger(e)
+                Game.fakeKey(49);
                 break;
               case 'LeftBatUp':
-                var e = jQuery.Event("keydown");
-                e.keyCode = 81; //keyval
-                $(document).trigger(e)
+                Game.fakeKey(81);
                 break;
               case 'LeftBatDown':
-                var e = jQuery.Event("keydown");
-                e.keyCode = 65; //keyval
-                $(document).trigger(e)
+                  Game.fakeKey(65);
                 break;    
               default:
                 console.log('unknown cmd:' + cmd);
